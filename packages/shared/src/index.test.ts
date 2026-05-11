@@ -33,7 +33,7 @@ describe("operation state", () => {
     const report = buildComplianceReport([confirmed], "Audit summary");
 
     expect(posture.shieldedMoves).toBe(1);
-    expect(report).toContain("StealthVault Pro compliance packet");
+    expect(report).toContain("UmbraPrecision compliance packet");
     expect(report).toContain("Audit summary");
   });
 });

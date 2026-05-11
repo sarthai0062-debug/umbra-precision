@@ -14,7 +14,7 @@ export function OverviewPanel({ posture, network, aiEnabled, umbraLive }: Props)
         <p className="eyebrow">Hackathon thesis</p>
         <h2>Why teams need a private treasury console</h2>
         <p>
-          Public Solana treasuries leak strategy the moment funds move. StealthVault Pro combines Umbra encrypted balances
+          Public Solana treasuries leak strategy the moment funds move. UmbraPrecision combines Umbra encrypted balances
           with an AI copilot so operators can shield USDC, plan safer flows, and produce audit-ready summaries without
           exposing full history on-chain.
         </p>

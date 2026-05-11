@@ -1,4 +1,4 @@
-# StealthVault Pro
+# UmbraPrecision
 
 Private treasury console for the Umbra Side Track hackathon: Umbra shield/unshield flows, AI treasury planning, privacy posture, playbooks, and compliance export.
 
@@ -31,7 +31,7 @@ Open `http://localhost:5173`. The web app calls `http://localhost:8080/api` by d
 ```bash
 git init
 git add .
-git commit -m "Initial StealthVault Pro release"
+git commit -m "Initial UmbraPrecision release"
 git branch -M main
 git remote add origin https://github.com/<your-user>/<your-repo>.git
 git push -u origin main

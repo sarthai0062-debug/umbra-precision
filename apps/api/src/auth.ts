@@ -9,7 +9,7 @@ const LOGIN_CHALLENGE_TTL_MS = 5 * 60 * 1000;
 
 export const issueLoginChallenge = (publicKey: string) => {
   const nonce = randomUUID();
-  const message = `StealthVault login for ${publicKey}\nnonce:${nonce}\nts:${Date.now()}`;
+  const message = `UmbraPrecision login for ${publicKey}\nnonce:${nonce}\nts:${Date.now()}`;
   loginChallengeStore.set(publicKey, {
     message,
     expiresAt: Date.now() + LOGIN_CHALLENGE_TTL_MS,

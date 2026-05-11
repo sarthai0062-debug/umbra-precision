@@ -1,4 +1,4 @@
-# StealthVault Pro Architecture
+# UmbraPrecision Architecture
 
 ## Core User Journey
 1. Connect wallet and sign a login message.

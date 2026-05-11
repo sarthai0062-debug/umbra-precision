@@ -278,7 +278,7 @@ function App() {
         <header className="hero">
           <div>
             <p className="eyebrow">Umbra Side Track · Superteam Earn</p>
-            <h1>StealthVault Pro</h1>
+            <h1>UmbraPrecision</h1>
             <p>Private treasury operations on Solana with Umbra encrypted balances and an AI privacy copilot.</p>
           </div>
         </header>

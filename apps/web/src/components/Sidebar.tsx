@@ -29,11 +29,11 @@ export function Sidebar({ activeView, expanded, onToggle, onNavigate }: Props) {
     <aside className={`sidebar ${expanded ? "expanded" : "collapsed"}`}>
       <div className="sidebar-top">
         <div className="sidebar-brand">
-          <span className="brand-mark">SV</span>
+          <span className="brand-mark">UP</span>
           {expanded ? (
             <div>
-              <strong>StealthVault</strong>
-              <p>Umbra treasury console</p>
+              <strong>UmbraPrecision</strong>
+              <p>Private treasury console</p>
             </div>
           ) : null}
         </div>

@@ -93,7 +93,7 @@ export const computePrivacyPosture = (operations: OperationRecord[]): PrivacyPos
 export const buildComplianceReport = (operations: OperationRecord[], auditSummary?: string) => {
   const posture = computePrivacyPosture(operations);
   const lines = [
-    "# StealthVault Pro compliance packet",
+    "# UmbraPrecision compliance packet",
     "",
     `Generated: ${new Date().toISOString()}`,
     `Privacy posture: ${posture.score}/100 (${posture.label})`,

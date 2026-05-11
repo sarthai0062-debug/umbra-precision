@@ -38,7 +38,7 @@ export function ComplianceReportPanel({ report, token, apiBase, onStatus }: Prop
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = `stealthvault-compliance-${new Date().toISOString().slice(0, 10)}.md`;
+    anchor.download = `umbraprecision-compliance-${new Date().toISOString().slice(0, 10)}.md`;
     anchor.click();
     URL.revokeObjectURL(url);
     onStatus("Compliance packet downloaded.");

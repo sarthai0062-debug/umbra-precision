@@ -10,7 +10,7 @@ import {
 } from "@umbro/shared";
 import { appConfig } from "./config";
 
-const SYSTEM_PROMPT = `You are StealthVault Pro, a privacy-first treasury copilot for Solana teams using Umbra.
+const SYSTEM_PROMPT = `You are UmbraPrecision, a privacy-first treasury copilot for Solana teams using Umbra.
 Umbra shields SPL balances into encrypted accounts and supports anonymous mixer transfers with selective compliance access.
 Respond with valid JSON only. Never invent transaction signatures or wallet balances.
 Prefer USDC mint EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v and atomic base units (1 USDC = 1000000).
@@ -86,7 +86,7 @@ const heuristicPlan = (prompt: string): AiPlan => {
 
 const heuristicExplain = (topic: string): AiExplain => ({
   title: "Umbra treasury privacy",
-  explanation: `StealthVault routes ${topic} through Umbra encrypted balances on Solana devnet.`,
+  explanation: `UmbraPrecision routes ${topic} through Umbra encrypted balances on Solana devnet.`,
   privacyImpact: "Amounts stay confidential in encrypted accounts; public wallets only see queue and callback signatures.",
   suggestedNextSteps: [
     "Connect Phantom and sign the login challenge.",

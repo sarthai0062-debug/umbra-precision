@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "vercel-build": "npm --prefix ../.. run vercel-build",
     "lint": "tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest run"

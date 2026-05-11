@@ -40,8 +40,10 @@ git push -u origin main
 ## Deploy on Vercel
 
 1. Import the GitHub repository in Vercel.
-2. Keep the project root as the Vercel root directory.
-3. Vercel should read `vercel.json` automatically:
+2. Set **Root Directory** to `apps/web` or leave it empty for the repository root. Both layouts are supported:
+   - Repository root uses `vercel.json`
+   - `apps/web` uses `apps/web/vercel.json` and installs/builds from the monorepo root
+3. Vercel should read the matching `vercel.json` automatically:
    - `buildCommand`: `npm run vercel-build`
    - `outputDirectory`: `apps/web/dist`
    - `/api/*` rewrites to the serverless function in `api/index.ts`

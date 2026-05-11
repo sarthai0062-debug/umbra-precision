@@ -1,14 +1,14 @@
 import cors from "cors";
 import express, { type NextFunction, type Request, type Response, type Router } from "express";
 import helmet from "helmet";
-import pinoHttp from "pino-http";
+import { pinoHttp } from "pino-http";
 import { z } from "zod";
-import { appConfig } from "./config";
-import { logger } from "./logger";
-import { consumeLoginChallenge, getSessionPublicKey, issueLoginChallenge, issueSession, verifyWalletSignature } from "./auth";
-import { checkRateLimit } from "./rate-limit";
-import { explainTreasuryTopic, planTreasuryMove, summarizeAuditTrail } from "./ai-service";
-import { createOperation, getOperation, listOperations } from "./operations";
+import { appConfig } from "./config.js";
+import { logger } from "./logger.js";
+import { consumeLoginChallenge, getSessionPublicKey, issueLoginChallenge, issueSession, verifyWalletSignature } from "./auth.js";
+import { checkRateLimit } from "./rate-limit.js";
+import { explainTreasuryTopic, planTreasuryMove, summarizeAuditTrail } from "./ai-service.js";
+import { createOperation, getOperation, listOperations } from "./operations.js";
 
 const loginSchema = z.object({
   publicKey: z.string().min(32),
@@ -134,12 +134,28 @@ const registerRoutes = (router: Router) => {
   });
 };
 
+const allowedOrigins = new Set(
+  [appConfig.allowedOrigin, process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined].filter(
+    (origin): origin is string => Boolean(origin),
+  ),
+);
+
 export const createApp = () => {
   const app = express();
   const router = express.Router();
 
   app.use(helmet());
-  app.use(cors({ origin: appConfig.allowedOrigin }));
+  app.use(
+    cors({
+      origin(origin, callback) {
+        if (!origin || allowedOrigins.has(origin)) {
+          callback(null, true);
+          return;
+        }
+        callback(null, false);
+      },
+    }),
+  );
   app.use(express.json());
   app.use(pinoHttp({ logger }));
 

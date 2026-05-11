@@ -2,8 +2,8 @@ import bs58 from "bs58";
 import nacl from "tweetnacl";
 import { PublicKey } from "@solana/web3.js";
 import { randomUUID } from "node:crypto";
-import { appConfig } from "./config";
-import { loginChallengeStore, sessionStore } from "./store";
+import { appConfig } from "./config.js";
+import { loginChallengeStore, sessionStore } from "./store.js";
 
 const LOGIN_CHALLENGE_TTL_MS = 5 * 60 * 1000;
 

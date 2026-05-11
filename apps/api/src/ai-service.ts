@@ -8,7 +8,7 @@ import {
   type AiPlan,
   type OperationRecord,
 } from "@umbro/shared";
-import { appConfig } from "./config";
+import { appConfig } from "./config.js";
 
 const SYSTEM_PROMPT = `You are UmbraPrecision, a privacy-first treasury copilot for Solana teams using Umbra.
 Umbra shields SPL balances into encrypted accounts and supports anonymous mixer transfers with selective compliance access.

@@ -1,4 +1,4 @@
-import type { OperationRecord } from "./index";
+import type { OperationRecord } from "./index.js";
 
 export type TreasuryPlaybook = {
   id: string;

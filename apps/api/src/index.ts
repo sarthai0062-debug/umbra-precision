@@ -1,7 +1,7 @@
-import { appConfig } from "./config";
-import { createApp } from "./app";
-import { logger } from "./logger";
-import { runRetryPass } from "./operations";
+import { appConfig } from "./config.js";
+import { createApp } from "./app.js";
+import { logger } from "./logger.js";
+import { runRetryPass } from "./operations.js";
 
 const app = createApp();
 

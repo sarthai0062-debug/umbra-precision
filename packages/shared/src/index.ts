@@ -67,4 +67,4 @@ export {
   treasuryPlaybooks,
   type PrivacyPosture,
   type TreasuryPlaybook,
-} from "./treasury";
+} from "./treasury.js";

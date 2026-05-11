@@ -3,6 +3,7 @@
   "installCommand": "npm install --include=dev --include=optional",
   "buildCommand": "npm run vercel-build",
   "outputDirectory": "apps/web/dist",
+  "outputFileTracingRoot": ".",
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -12,7 +13,8 @@
   "functions": {
     "api/index.ts": {
       "memory": 1024,
-      "maxDuration": 60
+      "maxDuration": 60,
+      "includeFiles": "apps/api/dist/**"
     }
   }
 }

@@ -6,9 +6,9 @@ import {
   type OperationRecord,
   type OperationRequest,
 } from "@umbro/shared";
-import { idempotencyStore, operationStore } from "./store";
-import { umbraService } from "./umbra-service";
-import { validatePolicy } from "./policy";
+import { idempotencyStore, operationStore } from "./store.js";
+import { umbraService } from "./umbra-service.js";
+import { validatePolicy } from "./policy.js";
 
 const queuedForRetry = new Set<string>();
 

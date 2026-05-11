@@ -1,17 +1,12 @@
-import {
-  createInMemorySigner,
-  getEncryptedBalanceToPublicBalanceDirectWithdrawerFunction,
-  getPublicBalanceToEncryptedBalanceDirectDepositorFunction,
-  getUmbraClient,
-  getUserRegistrationFunction,
-} from "@umbra-privacy/sdk";
-import { appConfig } from "./config";
+import { appConfig } from "./config.js";
 
 export type UmbraExecutionResult = {
   queueSignature?: string;
   callbackSignature?: string;
   status: "queued" | "callback_confirmed";
 };
+
+const loadSdk = async () => import("@umbra-privacy/sdk");
 
 export class UmbraService {
   async executeRegister(): Promise<UmbraExecutionResult> {
@@ -23,6 +18,11 @@ export class UmbraService {
       };
     }
 
+    const {
+      createInMemorySigner,
+      getUmbraClient,
+      getUserRegistrationFunction,
+    } = await loadSdk();
     const signer = await createInMemorySigner();
     const client = await getUmbraClient({
       signer,
@@ -45,6 +45,11 @@ export class UmbraService {
       return { status: "queued", queueSignature: `mock-deposit-${mint}-${amount.toString()}` };
     }
 
+    const {
+      createInMemorySigner,
+      getPublicBalanceToEncryptedBalanceDirectDepositorFunction,
+      getUmbraClient,
+    } = await loadSdk();
     const signer = await createInMemorySigner();
     const client = await getUmbraClient({
       signer,
@@ -63,6 +68,11 @@ export class UmbraService {
       return { status: "queued", queueSignature: `mock-withdraw-${mint}-${amount.toString()}` };
     }
 
+    const {
+      createInMemorySigner,
+      getEncryptedBalanceToPublicBalanceDirectWithdrawerFunction,
+      getUmbraClient,
+    } = await loadSdk();
     const signer = await createInMemorySigner();
     const client = await getUmbraClient({
       signer,

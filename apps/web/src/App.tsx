@@ -42,8 +42,12 @@ async function api<T>(path: string, init: RequestInit = {}, token?: string): Pro
 
   const response = await fetch(`${apiBase}${path}`, { ...init, headers });
   if (!response.ok) {
-    const payload = await response.json().catch(() => ({ error: "Request failed" }));
-    throw new Error(payload.error || "Request failed");
+    const payload = await response.json().catch(() => null);
+    const message =
+      payload && typeof payload === "object" && "error" in payload && typeof payload.error === "string"
+        ? payload.error
+        : `Request failed (${response.status})`;
+    throw new Error(message);
   }
   return response.json() as Promise<T>;
 }

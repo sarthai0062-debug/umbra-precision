@@ -1,4 +1,4 @@
-import { appConfig } from "./config";
+import { appConfig } from "./config.js";
 import type { OperationRequest } from "@umbro/shared";
 export const validatePolicy = (request: OperationRequest) => {
   if (request.type === "register") return;

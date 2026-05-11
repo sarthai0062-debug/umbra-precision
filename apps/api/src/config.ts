@@ -3,11 +3,14 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 
-loadEnv({ path: resolve(dirname(fileURLToPath(import.meta.url)), "../.env") });
+if (!process.env.VERCEL) {
+  loadEnv({ path: resolve(dirname(fileURLToPath(import.meta.url)), "../.env") });
+}
+
 const schema = z.object({
   PORT: z.string().default("8080"),
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
-  ALLOWED_ORIGIN: z.string().default("http://localhost:5173"),
+  ALLOWED_ORIGIN: z.string().optional(),
   SESSION_TTL_MS: z.string().default("3600000"),
   ALLOWED_MINTS: z.string().default("EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"),
   MIN_AMOUNT_ATOMIC: z.string().default("1"),
@@ -23,11 +26,14 @@ const schema = z.object({
   NVIDIA_MODEL: z.string().default("minimaxai/minimax-m2.7"),
   ENABLE_AI: z.string().default("true"),
 });
+
 const env = schema.parse(process.env);
+const vercelOrigin = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined;
+
 export const appConfig = {
   port: Number(env.PORT),
   nodeEnv: env.NODE_ENV,
-  allowedOrigin: env.ALLOWED_ORIGIN,
+  allowedOrigin: env.ALLOWED_ORIGIN ?? vercelOrigin ?? "http://localhost:5173",
   sessionTtlMs: Number(env.SESSION_TTL_MS),
   allowedMints: env.ALLOWED_MINTS.split(",").map((m) => m.trim()),
   minAmountAtomic: BigInt(env.MIN_AMOUNT_ATOMIC),

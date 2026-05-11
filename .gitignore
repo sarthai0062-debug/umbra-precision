@@ -1,5 +1,7 @@
 node_modules
 dist
+**/*.js.map
+packages/shared/src/**/*.js
 .env
 .env.*
 !.env.example

@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "cd ../.. && npm install",
-  "buildCommand": "cd ../.. && npm run build -w @umbro/shared && npm run build -w @umbro/api && npm run build -w @umbro/web",
+  "installCommand": "cd ../.. && npm install --include=dev --include=optional",
+  "buildCommand": "cd ../.. && npm run vercel-build",
   "outputDirectory": "dist",
   "rewrites": [
     {

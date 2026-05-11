@@ -12,7 +12,7 @@
     "lint": "npm run lint --workspaces",
     "dev:api": "npm run dev -w @umbro/api",
     "dev:web": "npm run dev -w @umbro/web",
-    "vercel-build": "npm run build -w @umbro/shared && npm run build -w @umbro/api && npm run build -w @umbro/web"
+    "vercel-build": "bash scripts/vercel-build.sh"
   },
   "keywords": [],
   "author": "",

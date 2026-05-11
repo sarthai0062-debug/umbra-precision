@@ -1,0 +1,30 @@
+{
+  "name": "umbro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "npm run test --workspaces",
+    "build": "npm run build -w @umbro/shared && npm run build --workspaces",
+    "lint": "npm run lint --workspaces",
+    "dev:api": "npm run dev -w @umbro/api",
+    "dev:web": "npm run dev -w @umbro/web",
+    "vercel-build": "npm run build -w @umbro/shared && npm run build -w @umbro/api && npm run build -w @umbro/web"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/shared"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
